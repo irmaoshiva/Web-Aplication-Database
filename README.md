@@ -1,6 +1,7 @@
 # Web-Aplication-Database
 
 Dúvidas:
+
 ***** Primeira PHP ***** 
 - Dá mal se tentar registar 2x o mesmo animal com a mesma informação?
 - É suposto printar as queries de SQL?
