@@ -51,8 +51,9 @@
 			echo("<tr>\n");
 			echo("<td>{$row['animal_name']}</td>\n");
 			echo("<td>{$row['owner_name']}</td>\n");
-			echo("<td><a href=\"consults.php?VAT_client=");
-			echo($VAT_client);
+			echo("<td><a href=\"consults.php?VAT_client=$VAT_client&animal_name=$animal_name"); /*nova versão (2 inputs) */ 
+			/*echo("<td><a href=\"consults.php?VAT_client="); versão antiga */
+			/*echo($VAT_client);  versão antiga */
 			echo("\">View previous consults</a></td>\n");
 			echo("</tr>\n");
 		}
