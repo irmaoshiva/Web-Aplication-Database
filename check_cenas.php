@@ -19,7 +19,15 @@
 	$VAT_client = $_REQUEST['VAT_client'];
 	$animal_name = $_REQUEST['animal_name'];
 	$owner_name = $_REQUEST['owner_name'];
+
+
 	$sql = "SELECT a.name as animal_name, p.name as owner_name FROM person p INNER JOIN animal a ON (p.VAT = a.VAT) WHERE a.name = '$animal_name' AND p.name like '%$owner_name%'";
+	
+	/*
+	$sql = $dbh->prepare("SELECT a.name as animal_name, p.name as owner_name FROM person p INNER JOIN animal a ON (p.VAT = a.VAT) WHERE a.name = :animal_name AND p.name like '%:owner_name%'");
+	$sql->execute(array(':animal_name' => $animal_name, ':owner_name' => $owner_name));
+	*/
+
 	/*echo("<p>$sql</p>");*/
 	$result = $connection->query($sql);
 	$nrows = $result->rowCount();
