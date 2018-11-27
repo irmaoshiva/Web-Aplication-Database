@@ -70,7 +70,7 @@ insert into animal values ('Max'    , 123456006, 'Pit Bull', 'yellow', 'male'  ,
 insert into animal values ('Cookie' , 123456011, 'Bird'    , 'red'   , 'male'  , '2005-10-13', 13);
 insert into animal values ('Rolls'  , 123456022, 'Bird'    , 'blue'  , 'male'  , '2013-05-01', 1);
 insert into animal values ('Jim'    , 123456033, 'Bird'    , 'green' , 'female', '2010-02-05', 8);
-insert into animal values ('Cooper' , 123456011, 'Bird'    , 'yellow', 'female', '2016-04-05', 2);
+insert into animal values ('Cooper' , 123456011, 'Bird'    , 'yellow', 'female', '2006-04-05', 2);
 
 insert into consult values ('Striker', 123456001, '2018-01-01', 'Nausea, fever and a black mark on the neck. Cancer', 'Black Mark.'                    , 'Cirurgy'     , 'No sun light.'                            , 123456001, 123456022, 35);
 insert into consult values ('Jackson', 123456022, '2017-02-01', 'Nausea, fever and a black mark on the neck. Cancer', 'Black Mark.'                    , 'Cirurgy'     , 'No sun light.'                            , 123456002, 123456004, 20);
