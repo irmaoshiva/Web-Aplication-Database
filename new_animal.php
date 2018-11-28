@@ -26,6 +26,9 @@
 	/*echo("<p>$sql</p>");*/
 	$nrows = $connection->exec($sql);
 	/*echo("<p>Rows inserted: $nrows</p>");*/
+	/*
+	FAZER AQUI UM ELSE
+	*/
 	if(nrows)
 		echo("<h2>Animal Successfully Registered</h2>");
 	$connection = null;
