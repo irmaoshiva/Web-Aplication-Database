@@ -10,3 +10,6 @@ Dúvidas:
 ***** Primeiro Trigger *****
 
 - age - current_date ou a data da consulta?
+
+#pedro:
+tentei inserir um gajo q nao existia logo com um animal que não existia, e não ficaram lá.
