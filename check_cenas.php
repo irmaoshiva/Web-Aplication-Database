@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.tecnico.ulisboa.pt";
-	$user = "ist425330";
-	$pass = "acdo1863";
+	$user = "ist426527";
+	$pass = "hith1616";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -62,7 +62,7 @@
 			echo("<td><a href=\"consults.php?VAT_client=$VAT_client&animal_name=$animal_name"); /*nova versão (2 inputs) */ 
 			/*echo("<td><a href=\"consults.php?VAT_client="); versão antiga */
 			/*echo($VAT_client);  versão antiga */
-			echo("\">View previous consults</a></td>\n");
+			echo("\">ConsultsHistory/AddConsult</a></td>\n");
 			echo("</tr>\n");
 		}
 		echo("</table>");

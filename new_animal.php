@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.tecnico.ulisboa.pt";
-	$user = "ist425330";
-	$pass = "acdo1863";
+	$user = "ist426527";
+	$pass = "hith1616";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -25,7 +25,7 @@
 	$sql = "INSERT INTO animal VALUES ('$animal_name', $VAT_client, '$species_name', '$colour', '$gender', '$birth_year', 10)";
 	/*echo("<p>$sql</p>");*/
 	$nrows = $connection->exec($sql);
-	/*echo("<p>Rows inserted: $nrows</p>");*/
+	echo("<p>Rows inserted: $nrows</p>");
 	/*
 	FAZER AQUI UM ELSE
 	*/
