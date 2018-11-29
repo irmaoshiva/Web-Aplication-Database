@@ -13,3 +13,5 @@ Dúvidas:
 
 #pedro:
 tentei inserir um gajo q nao existia logo com um animal que não existia, e não ficaram lá.
+#pedro:
+escrever bem o código do consults.php
