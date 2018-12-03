@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.tecnico.ulisboa.pt";
-	$user = "ist425330";
-	$pass = "acdo1863";
+	$user = "ist426527";
+	$pass = "hith1616";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -21,9 +21,9 @@
 	$owner_name = $_REQUEST['owner_name'];
 
 
-	$sql = "SELECT a.name as animal_name, p.name as owner_name FROM person p INNER JOIN animal a ON (p.VAT = a.VAT) WHERE a.name = '$animal_name' AND p.name like '%$owner_name%'";
+	$sql = "SELECT a.name, p.name FROM person p INNER JOIN animal a ON (p.VAT = a.VAT) WHERE a.name = '$animal_name' AND p.name like '%$owner_name%'";
 	
-	/*
+	/* ISTO ERA PARA QUE? #pedro
 	$sql = $dbh->prepare("SELECT a.name as animal_name, p.name as owner_name FROM person p INNER JOIN animal a ON (p.VAT = a.VAT) WHERE a.name = :animal_name AND p.name like '%:owner_name%'");
 	$sql->execute(array(':animal_name' => $animal_name, ':owner_name' => $owner_name));
 	*/
@@ -34,7 +34,7 @@
 	if ($nrows == 0)
 	{
 		echo("<h2>Animal Not Found</h2>");
-		echo("<h3>If you want to register the animal in the veterinary hospital, please enter the following data</h3>");
+		echo("<h3>If you want to register the animal in the veterinary hospital, please enter the following data:</h3>");
 		echo("<form action='new_animal.php' method='post'>
 				<p><input type=hidden name='VAT_client'
 			value='$VAT_client'/></p>
@@ -44,7 +44,7 @@
 				<p>Colour: <input type='text' name='colour'/></p>
 				<p>Gender: <input type='text' name='gender'/></p>
 				<p>Birth Year: <input type='text' name='birth_year'/></p>
-				<p><small><u>NOTE:</u> Name and VAT owner were used the data previously entered. Age is automatically calculated.</small></p>		
+				<p><small><u>NOTE:</u> Name and VAT owner were already used in the data previously entered. Age is automatically calculated.</small></p>		
 				<p><input type='submit' value='SUBMIT'/></p>
 			</form>");
 	}
@@ -62,7 +62,7 @@
 			echo("<td><a href=\"consults.php?VAT_client=$VAT_client&animal_name=$animal_name"); /*nova versão (2 inputs) */ 
 			/*echo("<td><a href=\"consults.php?VAT_client="); versão antiga */
 			/*echo($VAT_client);  versão antiga */
-			echo("\">View previous consults</a></td>\n");
+			echo("\">ConsultsHistory/AddConsult</a></td>\n");
 			echo("</tr>\n");
 		}
 		echo("</table>");
