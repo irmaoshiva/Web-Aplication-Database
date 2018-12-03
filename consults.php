@@ -33,9 +33,9 @@
 	}
 	else
 	{	
-		echo("<h3>Previous consults involved the animal '$animal_name', whose VAT client is '$VAT_client'</h3>");
+		echo("<h3>Previous consults involving the animal '$animal_name', whose VAT client is '$VAT_client'</h3>");
 		echo("<table border=\"2\">");
-		echo("<tr><td>Animal Name</td><td>Date</td><td>Consult details</td></tr>");
+		echo("<tr><td>Animal Name</td><td>Date</td><td>Consult details</td><td>Insert Procedure</td></tr>");
 		foreach($result as $row)
 		{	
 			echo("<tr>\n");
@@ -44,7 +44,7 @@
 			echo("<td><a href=\"consult_details.php?VAT_client=$VAT_client&animal_name=$animal_name&date_timestamp={$row['date_timestamp']}");
 			echo("\">More information</a></td>\n");
 			echo("<td><a href=\"procedures.php?VAT_client=$VAT_client&animal_name=$animal_name&date_timestamp={$row['date_timestamp']}");
-			echo("\">Insert Procedure</a></td>\n");
+			echo("\">Insert here</a></td>\n");
 			echo("</tr>\n");
 		}
 		echo("</table>");
