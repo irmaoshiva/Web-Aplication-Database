@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.ist.utl.pt";
-	$user = "ist426527";
-	$pass = "hith1616";
+	$user = "ist425330";
+	$pass = "acdo1863";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -22,7 +22,7 @@
 			FROM animal a NATURAL JOIN consult 
 			WHERE a.vat = $VAT_client
 			AND a.name = '$animal_name';";
-	/*echo("<p>$sql</p>");*/
+	/*echo("<p>$sql</p>");*/ 
 	$result = $connection->query($sql);
 	$nrows = $result->rowCount();
 	if ($nrows == 0)
