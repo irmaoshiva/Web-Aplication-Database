@@ -44,7 +44,7 @@
 			echo("<td><a href=\"consult_details.php?VAT_client=$VAT_client&animal_name=$animal_name&date_timestamp={$row['date_timestamp']}");
 			echo("\">More information</a></td>\n");
 			echo("<td><a href=\"procedures.php?VAT_client=$VAT_client&animal_name=$animal_name&date_timestamp={$row['date_timestamp']}");
-			echo("\">Insert here</a></td>\n");
+			echo("\">New blood test</a></td>\n");
 			echo("</tr>\n");
 		}
 		echo("</table>");
