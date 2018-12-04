@@ -1,8 +1,7 @@
 <html>
 <body>
 	<?php
-		$VAT_owner = por numero (tinha q vir de tras....)
-		//$VAT_owner = $_REQUEST['VAT_owner'];
+		$VAT_owner = $_REQUEST['VAT_owner'];
 		$name = $_REQUEST['animal_name'];
 		$date_timestamp = $_REQUEST['date_timestamp'];
 		$VAT_assistant = $_REQUEST['VAT_assistant'];
@@ -48,40 +47,26 @@
 
 			$connection->beginTransaction();
 
+			$sql_ = array($sql1, $sql2, $sql3, $sql4, $sql5, $sql6, $sql7, $sql8);
+			$counter = count($sql);
 
-			if (! $connection->exec($sql1)){
-				echo("<p>Insertion failed</p>");
-				$connection->rollback();
-			}elseif(! $connection->exec($sql2)){
-				echo("<p>Insertion failed</p>");
-				$connection->rollback();
-			}elseif(! $connection->exec($sql3)){
-				echo("<p>Insertion failed</p>");
-				$connection->rollback();
-			}elseif(! $connection->exec($sql4)){
-				echo("<p>Insertion failed</p>");
-				$connection->rollback();
-			}elseif(! $connection->exec($sql5)){
-				echo("<p>Insertion failed</p>");
-				$connection->rollback();
-			}elseif(! $connection->exec($sql6)){
-				echo("<p>Insertion failed</p>");
-				$connection->rollback();
-			}elseif(! $connection->exec($sql7)){
-				echo("<p>Insertion failed</p>");
-				$connection->rollback();
-			}elseif(! $connection->exec($sql8)){
-				echo("<p>Insertion failed</p>");
-				$connection->rollback();
-			}else{
-				echo ("<p> Insertion performed successfully! </p>");
-				$connection->commit();
+			foreach($sql_ as &$sql){
+				if (! $connection->exec($sql)){
+					$connection->rollback();
+					echo("<p>Insertion failed</p>");
+					break;
+				}
+				$counter--;
 			}
+			if ($counter == 0){
+				$connection->commit();
+				echo("<p>All measurements must be a positive value.</p>");
+			}
+		
+			$connection = null;
 		}
-		else{
+		else
 			echo("<p>All measurements must be a positive value.</p>");
-		}
-		$connection = null;
 	?>
 </body>
 </html>
