@@ -18,3 +18,6 @@ tentei inserir um gajo q nao existia logo com um animal que não existia, e não
 escrever bem o código do consults.php
  #pedro:
 temos ferritin mal escrito é com um 'e' no fim mas ia ter q torcar merdas p trás, vou deixar assim e vou inserir ferritin's xD
+
+#pedro:
+testar o cálculo do num para quando não há nenhum num prévio.
