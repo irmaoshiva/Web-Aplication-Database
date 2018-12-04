@@ -13,15 +13,8 @@ create trigger update_age
 after insert on consult
 for each row
 begin
-	declare b_year timestamp;
-
-	select birth_year into b_year
-	from animal
-	where animal.name = new.name
-	and animal.VAT = new.VAT_owner;
-
 	update animal
-	set age = TIMESTAMPDIFF(YEAR, 'b_year', CURDATE())
+	set age = TIMESTAMPDIFF(YEAR, birth_year, CURDATE())
 	where new.name = animal.name
 	and new.VAT_owner = animal.VAT;
 end $$
