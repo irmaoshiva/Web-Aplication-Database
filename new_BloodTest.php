@@ -1,7 +1,8 @@
 <html>
 <body>
 	<?php
-		$VAT_owner = 123456011;
+		$VAT_owner = por numero (tinha q vir de tras....)
+		//$VAT_owner = $_REQUEST['VAT_owner'];
 		$name = $_REQUEST['animal_name'];
 		$date_timestamp = $_REQUEST['date_timestamp'];
 		$VAT_assistant = $_REQUEST['VAT_assistant'];

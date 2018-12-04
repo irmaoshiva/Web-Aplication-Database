@@ -14,14 +14,11 @@
 		echo("</p>");
 		exit();
 	}
-
 	$VAT_owner = $_REQUEST['VAT_owner'];
 	$animal_name = $_REQUEST['animal_name'];
 	$date_timestamp = $_REQUEST['date_timestamp'];	
-
-	$sql = "SELECT VAT FROM assistant";
+	$sql = "SELECT VAT_assistant FROM participation WHERE name = '$animal_name' and VAT_owner = '$VAT_owner' and date_timestamp = '$date_timestamp'";
 	$rows = $connection->query($sql)->fetchAll();
-
 	$connection = null;
 ?>
 	
