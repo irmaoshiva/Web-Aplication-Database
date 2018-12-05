@@ -14,12 +14,12 @@ after insert on consult
 for each row
 begin
 	update animal
-	set age = TIMESTAMPDIFF(YEAR, birth_year, new.date_timestamp)
-	where new.name = animal.name
-	and new.VAT_owner = animal.VAT;
+	set age = TIMESTAMPDIFF(YEAR, birth_year, NOW()), animal.name = animal.name, animal.VAT = animal.VAT,
+	where animal.name = new.name 
+	and animal.VAT = new.VAT_owner;
 end $$
 
-delimiter ;
+delimiter ; 
 
 /********** APAGAR PARA BAIXO **********/
 
@@ -27,8 +27,8 @@ select * from animal;
 
 select name, VAT_owner, date_timestamp from consult;
 
-insert into consult values ('Cooper', 123456011, '2030-11-02 08:00:00' , 'A', 'A', 'A', 'A', 123456011, 123456006, 1.62);
-
+/*insert into consult values ('Cooper', 123456011, '2030-11-02 08:00:00' , 'A', 'A', 'A', 'A', 123456011, 123456006, 1.62);
+*/
 insert into consult values ('Cooper', 123456011, '2015-10-02 08:00:00' , 'A', 'A', 'A', 'A', 123456011, 123456006, 1.62);
 
 select * from animal;

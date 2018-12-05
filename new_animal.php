@@ -31,12 +31,20 @@
 		echo('<p>Error: {$info[2]}</p>');
 		exit();
 	}
-	$stmt1->execute(array(':animal_name' => $animal_name, 
+	$test = $stmt1->execute(array(':animal_name' => $animal_name, 
 						  ':VAT' => $VAT,
 						  ':species_name' => $species_name,
 						  ':colour' => $colour,
 						  ':gender' => $gender,
 						  ':birth_year' => $birth_year));
+	if ($test == FALSE)
+	{
+		$info = $connection->errorInfo();
+		echo('<h3>Animal is already in the Database</h3>');	
+		echo('<p></p>');
+		echo('<p>Error: {$info[2]}</p>');
+		exit();
+	}
 
 	$stmt2 = $connection->prepare("SELECT name 
 								   FROM person 

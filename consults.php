@@ -100,7 +100,7 @@
 				?>
 			</select>
 		</p>
-		<p>Weight: <input type='text' name='weight' required/></p>
+		<p>Weight: <input type="number" min="0" name='weight' required/></p>
 		<p>Consult Diagnosis:
 			<select name='code'>
 				<?php

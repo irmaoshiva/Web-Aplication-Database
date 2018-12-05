@@ -36,7 +36,7 @@
 		echo('<p>Error: {$info[2]}</p>');
 		exit();
 	}
-	$stmt1->execute(array(':animal_name' => $animal_name, 
+	$test = $stmt1->execute(array(':animal_name' => $animal_name, 
 						  ':VAT_owner' => $VAT_owner,
 						  ':date_timestamp' => $date_timestamp,
 						  ':S' => $S,
@@ -46,6 +46,14 @@
 						  ':VAT_client' => $VAT_client,
 						  ':VAT_vet' => $VAT_vet,
 						  ':weight' => $weight));
+	if ($test == FALSE)
+	{
+		$info = $connection->errorInfo();
+		echo('<h3>Consult is already in the Database</h3>');	
+		echo('<p></p>');					
+		echo('<p>Error: {$info[2]}</p>');
+		exit();
+	}
 
 	$stmt2 = $connection->prepare("INSERT INTO consult_diagnosis VALUES (:code, :animal_name, :VAT_owner, :date_timestamp)");
 	if ($stmt2 == FALSE)
@@ -54,10 +62,19 @@
 		echo('<p>Error: {$info[2]}</p>');
 		exit();
 	}
-	$stmt2->execute(array(':code' => $code,
+	$test = $stmt2->execute(array(':code' => $code,
 						  ':animal_name' => $animal_name, 
 						  ':VAT_owner' => $VAT_owner,
 						  ':date_timestamp' => $date_timestamp));
+
+	if ($test == FALSE)
+	{
+		$info = $connection->errorInfo();
+		echo('<h3>Consult Diagnosis is already in the Database</h3>');	
+		echo('<p></p>');				
+		echo('<p>Error: {$info[2]}</p>');
+		exit();
+	}
 
 	?>
 
