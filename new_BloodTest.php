@@ -50,8 +50,6 @@
 			$connection->beginTransaction();
 
 			foreach($sql_ as &$sql){
-				echo "<p>$sql</p>";
-				echo "<p>$counter</p>";
 				if (! $connection->exec($sql))
 					break;
 				else
