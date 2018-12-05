@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.ist.utl.pt";
-	$user = "ist425330";
-	$pass = "acdo1863";
+	$user = "ist426527";
+	$pass = "hith1616";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -16,12 +16,10 @@
 		echo("</p>");
 		exit();
 	}
-
 	$VAT_client = $_REQUEST['VAT_client'];
 	$animal_name = $_REQUEST['animal_name'];
 	$VAT_owner = $_REQUEST['VAT_owner'];
 	$curent_date = date('Y-m-d H:i:s');
-
 	$stmt1 = $connection->prepare("SELECT p.name AS o_name, a.name AS a_name, c.VAT_owner AS VAT_o, date_timestamp
 								   FROM (person p INNER JOIN animal a ON (p.VAT = a.VAT)) INNER JOIN consult c ON (a.name = c.name)
 								   WHERE a.VAT = c.VAT_owner
@@ -35,9 +33,7 @@
 	}
 	$stmt1->execute(array(':animal_name' => $animal_name, 
 						  ':VAT_owner' => $VAT_owner));
-
 	$nrows1 = $stmt1->rowCount();
-
 	if ($nrows1 == 0)
 	{
 		echo("<h2>Previous Consults Not Found</h2>");
@@ -58,7 +54,7 @@
 			echo("<td><a href=\"consult_details.php?VAT_client=$VAT_client&animal_name=$animal_name&VAT_owner=$VAT_owner&date_timestamp=");
 			echo($row['date_timestamp']);
 			echo("\">More information</a></td>\n");
-			echo("<td><a href=\"procedures.php?VAT_owner=$VAT_client&animal_name=$animal_name&date_timestamp=");
+			echo("<td><a href=\"procedures.php?VAT_owner=$VAT_owner&animal_name=$animal_name&date_timestamp=");
 			echo($row['VAT_o']);
 			echo("&animal_name=$animal_name&date_timestamp=");
 			echo($row['date_timestamp']);
@@ -67,7 +63,6 @@
 		}
 		echo("</table>");
 	}
-
 	?>
 
 	<br> </br>
@@ -100,7 +95,7 @@
 				?>
 			</select>
 		</p>
-		<p>Weight: <input type="number" min="0" name='weight' required/></p>
+		<p>Weight: <input type='text' name='weight' required/></p>
 		<p>Consult Diagnosis:
 			<select name='code'>
 				<?php
