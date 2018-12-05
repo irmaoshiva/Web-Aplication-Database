@@ -16,38 +16,61 @@
 		echo("</p>");
 		exit();
 	}
+
 	$animal_name = $_REQUEST['animal_name'];
-	$VAT_client = $_REQUEST['VAT_client'];
+	$VAT = $_REQUEST['VAT'];
 	$species_name = $_REQUEST['species_name'];
 	$colour = $_REQUEST['colour'];
 	$gender = $_REQUEST['gender'];
 	$birth_year = $_REQUEST['birth_year'];
-	$sql1 = "INSERT INTO animal VALUES ('$animal_name', $VAT_client, '$species_name', '$colour', '$gender', '$birth_year', 10)";
-	echo("<p>$sql</p>");
-	$nrows1 = $connection->exec($sql1);
-	if($nrows1)
+	
+	$stmt1 = $connection->prepare("INSERT INTO animal VALUES (:animal_name, :VAT, :species_name, :colour, :gender, :birth_year, 0)");
+	if ($stmt1 == FALSE)
 	{
-		echo("<h2>Animal Successfully Registered</h2>");
-		echo("<p>Rows inserted: $nrows</p>");
+		$info = $connection->errorInfo();				
+		echo('<p>Error: {$info[2]}</p>');
+		exit();
 	}
-	else
+	$stmt1->execute(array(':animal_name' => $animal_name, 
+						 ':VAT' => $VAT,
+						 ':species_name' => $species_name,
+						 ':colour' => $colour,
+						 ':gender' => $gender,
+						 ':birth_year' => $birth_year));
+
+	$stmt2 = $connection->prepare("SELECT name FROM person WHERE VAT = :VAT");
+	if ($stmt2 == FALSE)
 	{
-		echo("<h2>Error in inserting the new animal into the database</h2>");
-		$sql2 = "SELECT * FROM client WHERE VAT = '$VAT_client'";
-		$nrows2 = $connection->exec($sql2);
-		if(!$nrows2)
-		{
-			echo("<h3>Please insert manually through the MySQL command line prompt the information of the new Client</h3>");
-		}
-		else
-		{
-			echo("<h3>Please confirm the entered data</h3>");
-		}
-		echo("<form action='new_animal.php' method='post'>		
-			  	<p><input type='submit' value='BACK'/></p>
-			  </form>");
+		$info = $connection->errorInfo();
+		echo('<p>Error: {$info[2]}</p>');
+		exit();
 	}
+	$stmt2->execute(array(':VAT' => $VAT));
+	foreach($stmt2 as $row)
+	{
+		$owner_name = $row['name'];
+	}
+	?>
+
+	<h2>Animal Successfully Registered</h2>
+
+	<br> </br>
+
+	<form action='check_cenas.php' method='post'>
+		<h3>See the animal in the database and your previous consults</h3>
+		<p><input type=hidden name='VAT_client' value='<?=$VAT?>'/></p>
+		<p><input type=hidden name='animal_name' value='<?=$animal_name?>'/></p>
+		<p><input type=hidden name='owner_name' value='<?=$owner_name?>'/></p>
+		<p><input type='submit' value='BACK'/></p>
+	</form>
+
+	<?php
 	$connection = null;
 	?>
+	<br> </br>
+	<form action='introduce_data.php' method='post'>
+		<h3>Go back to Homepage</h3>
+		<p><input type='submit' value='HOME'/></p>
+	</form>
 </body>
 </html>
