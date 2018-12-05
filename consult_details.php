@@ -16,18 +16,32 @@
 		echo("</p>");
 		exit();
 	}
-	$VAT_client = $_REQUEST['VAT_client'];
 	$animal_name = $_REQUEST['animal_name'];
+	$VAT_owner = $_REQUEST['VAT_owner'];
 	$date_timestamp = $_REQUEST['date_timestamp'];
-	$sql = "SELECT a.name, a.gender, a.species_name, a.colour, a.age, a.birth_year, c.s, c.o, c.a, c.p, c.weight, cd.code, p.name_med, p.dosage, p.lab, p.regime
-			FROM animal a NATURAL JOIN consult c NATURAL LEFT OUTER JOIN consult_diagnosis cd NATURAL LEFT OUTER JOIN prescription p
-			WHERE a.vat = $VAT_client
-			AND a.name = '$animal_name'
-			AND c.date_timestamp = '$date_timestamp';";
-	/*echo("<p>$sql</p>");*/
-	$result = $connection->query($sql);
-	$nrows = $result->rowCount();
-	if ($nrows == 0)
+
+	echo("<p>$animal_name</p>");
+	echo("<p>$VAT_owner</p>");
+	echo("<p>$date_timestamp</p>");
+
+	$stmt1 = $connection->prepare("SELECT a.name, a.gender, a.species_name, a.colour, a.age, a.birth_year, c.s, c.o, c.a, c.p, c.weight, cd.code, p.name_med, p.dosage, p.lab, p.regime
+								   FROM animal a NATURAL JOIN consult c NATURAL LEFT OUTER JOIN consult_diagnosis cd NATURAL LEFT OUTER JOIN prescription p
+								   WHERE a.name = :animal_name
+								   AND a.vat = :VAT_owner
+								   AND c.date_timestamp = :date_timestamp");
+	if ($stmt1 == FALSE)
+	{
+		$info = $connection->errorInfo();				
+		echo('<p>Error: {$info[2]}</p>');
+		exit();
+	}
+	$stmt1->execute(array(':animal_name' => $animal_name, 
+						  ':VAT_owner' => $VAT_owner,
+						  ':date_timestamp' => $date_timestamp));
+
+	$nrows1 = $stmt1->rowCount();
+
+	if ($nrows1 == 0)
 	{
 		echo("<h2>Consult of date: ${date_timestamp} with empty data.</h2>");
 	}

@@ -63,16 +63,17 @@
 		}
 		echo("</table>");
 
-		reset($stmt1);
 		$aux = $stmt1->fetch();
 		$VAT_o = $aux['VAT_o'];
+		echo("ola");
+		echo("<p>$VAT_o</p>");
 
 	}
 
 	?>
 
 	<br> </br>
-	<h3>If you want to register a consult, please enter the following data</h3>
+	<h3>If you want to register a new consult, please enter the following data</h3>
 	<form action='new_consult.php' method='post'>
 		<p><input type=hidden name='animal_name' value='<?=$animal_name?>'/></p>
 		<p><input type=hidden name='VAT_owner' value='<?=$VAT_o?>'/></p>
@@ -102,7 +103,25 @@
 			</select>
 		</p>
 		<p>Weight: <input type='text' name='weight' required/></p>
-		<p>Diagnostic codes: <input type='text' name='code'/></p>
+		<p>Consult Diagnosis:
+			<select name='code'>
+				<?php
+				$stmt3 = "SELECT code FROM diagnosis_code ORDER BY code";
+				$result3 = $connection->query($stmt3);
+				if ($result3 == FALSE)
+				{
+					$info = $connection->errorInfo();
+					echo('<p>Error: {$info[2]}</p>');
+					exit();
+				}
+				foreach($result3 as $row)
+				{
+					$code = $row['code'];
+					echo("<option value=\"$code\">$code</option>");
+				}
+				?>
+			</select>
+		</p>
 
 		<p><small><u>NOTE:</u> Animal name, VAT owner and VAT client were used the data previously entered. Date is set to the current date.</small></p>		
 		<p><input type='submit' value='SUBMIT'/></p>
