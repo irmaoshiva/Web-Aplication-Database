@@ -18,7 +18,7 @@
 	$animal_name = 'Striker';
 	$date_timestamp = '2018-01-01 00:00:00';
 	$sql = "SELECT VAT_assistant FROM participation WHERE name = '$animal_name' and VAT_owner = '$VAT_owner' and date_timestamp = '$date_timestamp'";
-	$rows = $connection->query($sql)->fetchAll();
+	$rows = $connection->query($sql);
 	$connection = null;
 ?>
 	
@@ -27,9 +27,9 @@
 	<h3>Insert the blood test results:</h3>
 	
 	<form action='new_BloodTest.php' method='post'>
-			<p><input type=hidden name='VAT_owner' value='$VAT_owner'/></p>
-			<p><input type=hidden name='animal_name' value='$animal_name'/></p>
-			<p><input type=hidden name='date_timestamp' value='$date_timestamp'/></p>
+			<p><input type=hidden name='VAT_owner' value = '<?=$VAT_owner?>' /></p>
+			<p><input type=hidden name='animal_name' value = '<?=$animal_name?>' /></p>
+			<p><input type=hidden name='date_timestamp' value = '<?=$date_timestamp?>' /></p>
 
 			<p>Assistants VAT:
 				<select name="VAT_assistant">
