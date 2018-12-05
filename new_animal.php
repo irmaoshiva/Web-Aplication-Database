@@ -32,13 +32,15 @@
 		exit();
 	}
 	$stmt1->execute(array(':animal_name' => $animal_name, 
-						 ':VAT' => $VAT,
-						 ':species_name' => $species_name,
-						 ':colour' => $colour,
-						 ':gender' => $gender,
-						 ':birth_year' => $birth_year));
+						  ':VAT' => $VAT,
+						  ':species_name' => $species_name,
+						  ':colour' => $colour,
+						  ':gender' => $gender,
+						  ':birth_year' => $birth_year));
 
-	$stmt2 = $connection->prepare("SELECT name FROM person WHERE VAT = :VAT");
+	$stmt2 = $connection->prepare("SELECT name 
+								   FROM person 
+								   WHERE VAT = :VAT");
 	if ($stmt2 == FALSE)
 	{
 		$info = $connection->errorInfo();
@@ -57,7 +59,7 @@
 	<br> </br>
 
 	<form action='check_cenas.php' method='post'>
-		<h3>See the animal in the database and your previous consults</h3>
+		<h3>See the animal in the database and add new consults</h3>
 		<p><input type=hidden name='VAT_client' value='<?=$VAT?>'/></p>
 		<p><input type=hidden name='animal_name' value='<?=$animal_name?>'/></p>
 		<p><input type=hidden name='owner_name' value='<?=$owner_name?>'/></p>
