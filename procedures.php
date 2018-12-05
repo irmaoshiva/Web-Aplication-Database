@@ -14,9 +14,12 @@
 		echo("</p>");
 		exit();
 	}
-	$VAT_owner = $_REQUEST['VAT_owner'];
+	$VAT_owner = 123456001;
+	$animal_name = 'Striker';
+	$date_timestamp = '2018-01-01 00:00:00';
+	/*$VAT_owner = $_REQUEST['VAT_owner'];
 	$name = $_REQUEST['animal_name'];
-	$date_timestamp = $_REQUEST['date_timestamp'];
+	$date_timestamp = $_REQUEST['date_timestamp'];*/
 	$sql = "SELECT VAT_assistant FROM participation WHERE name = '$animal_name' and VAT_owner = '$VAT_owner' and date_timestamp = '$date_timestamp'";
 	$rows = $connection->query($sql);
 	$connection = null;
