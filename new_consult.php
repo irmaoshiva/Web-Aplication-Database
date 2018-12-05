@@ -29,19 +29,6 @@
 	$weight = $_REQUEST['weight'];
 	$code = $_REQUEST['code'];
 
-	echo("<p>$animal_name</p>");
-	echo("<p>$VAT_owner</p>");
-	echo("<p>$date_timestamp</p>");
-	echo("<p>$S</p>");
-	echo("<p>$O</p>");
-	echo("<p>$A</p>");
-	echo("<p>$P</p>");
-	echo("<p>$VAT_client</p>");
-	echo("<p>$VAT_vet</p>");
-	echo("<p>$weight</p>");
-	echo("<p>$code</p>");
-
-
 	$stmt1 = $connection->prepare("INSERT INTO consult VALUES (:animal_name, :VAT_owner, :date_timestamp, :S, :O, :A, :P, :VAT_client, :VAT_vet, :weight)");
 	if ($stmt1 == FALSE)
 	{
@@ -79,15 +66,20 @@
 	<br> </br>
 
 	<form action='consults.php' method='post'>
-		<h3>See the consults in the database and your previous consults</h3>
-		<p><input type=hidden name='VAT_client' value='<?=$VAT?>'/></p>
+		<h3>See the new consult in the database and your previous consults</h3>
+		<p><input type=hidden name='VAT_client' value='<?=$VAT_client?>'/></p>
 		<p><input type=hidden name='animal_name' value='<?=$animal_name?>'/></p>
-		<p><input type=hidden name='owner_name' value='<?=$owner_name?>'/></p>
+		<p><input type=hidden name='VAT_owner' value='<?=$VAT_owner?>'/></p>
 		<p><input type='submit' value='BACK'/></p>
 	</form>
 
 	<?php	
 	$connection = null;
 	?>
+	<br> </br>
+	<form action='introduce_data.php' method='post'>
+		<h3>Go back to Homepage</h3>
+		<p><input type='submit' value='HOME'/></p>
+	</form>
 </body>
 </html>

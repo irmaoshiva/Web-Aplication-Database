@@ -1,7 +1,6 @@
 DROP TRIGGER if exists ensure1_difphonum;
 DROP TRIGGER if exists ensure2_difphonum;
 
-
 /*   TRIGGER 1   */ 
 
 delimiter $$
@@ -24,8 +23,8 @@ delimiter ;
 
 /*    TEST TRIGGER 1:   */
 
-insert into person values (123456111, 'Richards'   ,   'Central Street' , 'Seattle'      , '2200-125');
-insert into person values (123456222, 'Andrew'      ,  'Happy Boulevard' , 'Chicago'      , '1111-125');
+insert into person values (123456111, 'Richards', 'Central Street', 'Seattle', '2200-125');
+insert into person values (123456222, 'Andrew', 'Happy Boulevard', 'Chicago', '1111-125');
 insert into phone_number values (123456111, 961111111);
 insert into phone_number values (123456222, 961111111);
 
@@ -51,8 +50,8 @@ delimiter ;
 
 
 /*    TEST TRIGGER 2 :    */ 
-insert into person values (123456111, 'Richards'   ,   'Central Street' , 'Seattle'      , '2200-125');
-insert into phone_number values (123456111, 961111111);
+insert into person values (123456333, 'Adam', 'Central Street', 'New York', '2300-125');
+insert into phone_number values (123456333, 961111111);
 
 update phone_number
 set phone = 961111111

@@ -36,7 +36,7 @@
 
 	if($nrows1)
 	{
-		$stmt2 = $connection->prepare("SELECT p.name AS o_name, a.name AS a_name, colour, gender, birth_year, age 
+		$stmt2 = $connection->prepare("SELECT p.name AS o_name, a.name AS a_name, a.VAT AS VAT_o, species_name, colour, gender, birth_year, age 
 				 					   FROM person p INNER JOIN animal a ON (p.VAT = a.VAT) 
 				 					   WHERE a.name = :animal_name 
 				 					   AND p.name like CONCAT('%',:owner_name,'%')");
@@ -80,7 +80,7 @@
 				<p>Colour: <input type='text' name='colour' required/></p>
 				<p>Gender: <input type='text' name='gender' required/></p>
 				<p>Birth Year: <input type='date' name='birth_year' required/></p>
-				<p><small><u>NOTE:</u> Name and VAT owner were already used in the data previously entered. Age is automatically calculated.</small></p>		
+				<p><small><u>NOTE:</u> Name and VAT owner were already used in the data previously entered. Age is automatically calculated in the trigger.</small></p>		
 				<p><input type='submit' value='SUBMIT'/></p>
 			</form>
 			<?php
@@ -90,18 +90,20 @@
 			echo("<h2>Animal is already registered</h2>");
 			echo("<h3>Matching Animals</h3>");
 			echo("<table border=\"2\">");
-			echo("<tr><td>Owner Name</td><td>Animal Name</td><td>Colour</td><td>Gender</td><td>Birth Year</td><td>Age</td><td>Previous consults involved the animal</td></tr>");
+			echo("<tr><td>Owner Name</td><td>Animal Name</td><td>VAT Owner</td><td>Species Name</td><td>Colour</td><td>Gender</td><td>Birth Year</td><td>Age</td><td>Previous consults involved the animal</td></tr>");
 			foreach($stmt2 as $row)
 			{
 				echo("<tr>\n");
 				echo("<td>{$row['o_name']}</td>\n");
 				echo("<td>{$row['a_name']}</td>\n");
+				echo("<td>{$row['VAT_o']}</td>\n");
+				echo("<td>{$row['species_name']}</td>\n");
 				echo("<td>{$row['colour']}</td>\n");
 				echo("<td>{$row['gender']}</td>\n");
 				echo("<td>{$row['birth_year']}</td>\n");
 				echo("<td>{$row['age']}</td>\n");
-				echo("<td><a href=\"consults.php?VAT_client=$VAT_client&animal_name=$animal_name&owner_name=");
-				echo($row['o_name']);
+				echo("<td><a href=\"consults.php?VAT_client=$VAT_client&animal_name=$animal_name&VAT_owner=");
+				echo($row['VAT_o']);
 				echo("\">ConsultsHistory/AddConsult</a></td>\n");
 				echo("</tr>\n");
 			}

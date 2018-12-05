@@ -59,7 +59,7 @@
 	<br> </br>
 
 	<form action='check_cenas.php' method='post'>
-		<h3>See the animal in the database and yadd new consults</h3>
+		<h3>See the animal in the database and add new consults</h3>
 		<p><input type=hidden name='VAT_client' value='<?=$VAT?>'/></p>
 		<p><input type=hidden name='animal_name' value='<?=$animal_name?>'/></p>
 		<p><input type=hidden name='owner_name' value='<?=$owner_name?>'/></p>
