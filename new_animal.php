@@ -32,13 +32,15 @@
 		exit();
 	}
 	$stmt1->execute(array(':animal_name' => $animal_name, 
-						 ':VAT' => $VAT,
-						 ':species_name' => $species_name,
-						 ':colour' => $colour,
-						 ':gender' => $gender,
-						 ':birth_year' => $birth_year));
+						  ':VAT' => $VAT,
+						  ':species_name' => $species_name,
+						  ':colour' => $colour,
+						  ':gender' => $gender,
+						  ':birth_year' => $birth_year));
 
-	$stmt2 = $connection->prepare("SELECT name FROM person WHERE VAT = :VAT");
+	$stmt2 = $connection->prepare("SELECT name 
+								   FROM person 
+								   WHERE VAT = :VAT");
 	if ($stmt2 == FALSE)
 	{
 		$info = $connection->errorInfo();

@@ -16,8 +16,8 @@
 		if ($creatine > 0.0 && $Neurotrophils > 0.0 && $Lymphocytes > 0.0 && $Monocytes > 0.0 && $Ferritine > 0.0)
 		{
 			$host = "db.ist.utl.pt";
-			$user = "ist426527";
-			$pass = "hith1616";
+			$user = "ist425330";
+			$pass = "acdo1863";
 			$dsn = "mysql:host=$host;dbname=$user";
 			try
 			{

@@ -100,9 +100,8 @@
 				echo("<td>{$row['gender']}</td>\n");
 				echo("<td>{$row['birth_year']}</td>\n");
 				echo("<td>{$row['age']}</td>\n");
-				echo("<td><a href=\"consults.php?VAT_client=$VAT_client&animal_name=$animal_name"); /*nova versão (2 inputs) */ 
-				/*echo("<td><a href=\"consults.php?VAT_client="); versão antiga */
-				/*echo($VAT_client);  versão antiga */
+				echo("<td><a href=\"consults.php?VAT_client=$VAT_client&animal_name=$animal_name&owner_name=");
+				echo($row['o_name']);
 				echo("\">ConsultsHistory/AddConsult</a></td>\n");
 				echo("</tr>\n");
 			}
