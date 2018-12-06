@@ -58,17 +58,31 @@
 
 			if ($counter == 0){
 				$connection->commit();
-				echo ("<p> Insertion performed successfully! </p>");
+				echo ("<p><h1> Insertion performed successfully! </h1> </p>");
 			} else{
 				$connection->rollback();
 				//$info = $connection->errorInfo();
 				//echo("<p>Error: {$info[2]}</p>");
-				echo("<p>Insertion failed</p>");
+				echo("<p><h1> Insertion failed <h1/></p>");
 			}
 			$connection = null;
 		}
 		else
 			echo("<p>All measurements must be a positive value.</p>");
 	?>
+
+	<form action='procedures.php' method='post'>
+		<h3>Insert new Blood test</h3>
+		<p><input type=hidden name='VAT_owner' value = '<?=$VAT_owner?>' /></p>
+		<p><input type=hidden name='animal_name' value = '<?=$animal_name?>' /></p>
+		<p><input type=hidden name='date_timestamp' value = '<?=$date_timestamp?>' /></p>
+		<p>  <input type='submit' value='New' required/></p>
+	</form>
+	<br> </br>
+	<form action='introduce_data.php' method='post'>
+		<h3>Go back to Homepage</h3>
+		<p><input type='submit' value='HOME'/></p>
+	</form>
+
 </body>
 </html>

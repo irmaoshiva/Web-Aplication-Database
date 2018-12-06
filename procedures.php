@@ -59,6 +59,13 @@
 			<p>Description: <input type='text' name='desc' required/></p>
 			<p>  <input type='submit' value='SUBMIT' required/></p>
 		</form>
+
+	<br> </br>
+	<form action='introduce_data.php' method='post'>
+		<h3>Go back to Homepage</h3>
+		<p><input type='submit' value='HOME'/></p>
+	</form>
+
 	
 </body>
 </html>
