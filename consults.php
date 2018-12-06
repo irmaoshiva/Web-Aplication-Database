@@ -96,7 +96,7 @@
 			</select>
 		</p>
 		<p>Weight: <input type="text" name="weight" required/></p>
-		<p>Consult Diagnosis: 
+		<p>Consult Diagnosis: <br>
 			<?php
 			$stmt3 = "SELECT * FROM diagnosis_code ORDER BY code";
 			$result3 = $connection->query($stmt3);
@@ -110,7 +110,7 @@
 			{
 				$code = $row["code"];
 				$name = $row["name"];
-				echo("<input type="checkbox" name="diagnosis_code[]" value="$code"/>$name<br/>");
+				echo("<input type='checkbox' name='diagnosis_code[]' value='$code'/>$name<br/>");
 			}
 			$connection = null;
 			?>
