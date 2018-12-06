@@ -1,7 +1,7 @@
 <?php
 	$host = "db.ist.utl.pt";
-	$user = "ist425306";
-	$pass = "zfjy5090";
+	$user = "ist426527";
+	$pass = "hith1616";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{

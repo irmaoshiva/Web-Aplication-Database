@@ -5,18 +5,19 @@
 		$VAT_owner = $_REQUEST['VAT_owner'];
 		$name = $_REQUEST['animal_name'];
 		$date_timestamp = $_REQUEST['date_timestamp'];
-		$VAT_assistant = $_REQUEST['VAT_assistant'];
+		$VAT_assistant_ = $_REQUEST['VAT_assistant'];
 		$creatine = (float)$_REQUEST['creatine'];
 		$Neurotrophils = (float)$_REQUEST['neuro'];
 		$Lymphocytes = (float)$_REQUEST['lym'];
 		$Monocytes = (float)$_REQUEST['mono'];
 		$Ferritine = (float)$_REQUEST['ferr'];
 		$description = $_REQUEST['desc'];
+
 		if ($creatine > 0.0 && $Neurotrophils > 0.0 && $Lymphocytes > 0.0 && $Monocytes > 0.0 && $Ferritine > 0.0)
 		{
 			$host = "db.ist.utl.pt";
-			$user = "ist425330";
-			$pass = "acdo1863";
+			$user = "ist426527";
+			$pass = "hith1616";
 			$dsn = "mysql:host=$host;dbname=$user";
 			try
 			{
@@ -51,9 +52,11 @@
 			$sql = array($sql8, $sql7, $sql6, $sql5, $sql4, $sql3, $sql2, $sql1);
 			$counter = count($sql);
 			$connection->beginTransaction();
+
 			while ($counter != 0)
 				if (! $connection->prepare($stm[-- $counter])->execute($sql[$counter]))
 					break;
+
 			if ($counter == 0){
 				$connection->commit();
 				echo ("<p><h1> Insertion performed successfully! </h1> </p>");
