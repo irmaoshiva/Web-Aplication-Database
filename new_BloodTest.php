@@ -74,7 +74,7 @@
 	<form action='procedures.php' method='post'>
 		<h3>Insert new Blood test</h3>
 		<p><input type=hidden name='VAT_owner' value = '<?=$VAT_owner?>' /></p>
-		<p><input type=hidden name='animal_name' value = '<?=$animal_name?>' /></p>
+		<p><input type=hidden name='animal_name' value = '<?=$name?>' /></p>
 		<p><input type=hidden name='date_timestamp' value = '<?=$date_timestamp?>' /></p>
 		<p>  <input type='submit' value='New' required/></p>
 	</form>
