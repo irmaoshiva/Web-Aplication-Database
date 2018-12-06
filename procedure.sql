@@ -16,7 +16,6 @@ begin
 	i.units = 'centigrams'
 	where i.units = 'miligrams';
 
-	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'The changes were successfully made.';
 end $$ 
 
 delimiter ;
