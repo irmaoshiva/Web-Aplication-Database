@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.tecnico.ulisboa.pt";
-	$user = "ist426527";
-	$pass = "hith1616";
+	$user = "ist425330";
+	$pass = "acdo1863";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -42,7 +42,7 @@
 		$info = $connection->errorInfo();
 		echo('<h3>Animal is already in the Database</h3>');	
 		echo('<p></p>');
-		echo('<p>Error: {$info[2]}</p>');
+		echo("<p>Error: {$info}</p>");
 		exit();
 	}
 

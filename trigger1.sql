@@ -14,7 +14,7 @@ after insert on consult
 for each row
 begin
 	update animal
-	set age = TIMESTAMPDIFF(YEAR, birth_year, NOW()), animal.name = animal.name, animal.VAT = animal.VAT,
+	set age = TIMESTAMPDIFF(YEAR, birth_year, NOW()), animal.name = animal.name, animal.VAT = animal.VAT, animal.birth_year = animal.birth_year
 	where animal.name = new.name 
 	and animal.VAT = new.VAT_owner;
 end $$

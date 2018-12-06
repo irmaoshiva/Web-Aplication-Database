@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.tecnico.ulisboa.pt";
-	$user = "ist426527";
-	$pass = "hith1616";
+	$user = "ist425330";
+	$pass = "acdo1863";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
