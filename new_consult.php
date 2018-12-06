@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.tecnico.ulisboa.pt";
-	$user = "ist425330";
-	$pass = "acdo1863";
+	$user = "istxxxxxx";
+	$pass = "xxxxxxxx";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -77,6 +77,7 @@
 		}
 	}
 
+	$connection = null;
 	?>
 
 	<h2>Consult Successfully Registered</h2>
@@ -90,10 +91,7 @@
 		<p><input type="hidden" name="VAT_owner" value="<?=$VAT_owner?>"/></p>
 		<p><input type="submit" value="BACK"/></p>
 	</form>
-
-	<?php	
-	$connection = null;
-	?>
+	
 	<br> </br>
 	<form action="introduce_data.php" method="post">
 		<h3>Go back to Homepage</h3>

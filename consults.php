@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.ist.utl.pt";
-	$user = "ist425330";
-	$pass = "acdo1863";
+	$user = "istxxxxxx";
+	$pass = "xxxxxxxx";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
