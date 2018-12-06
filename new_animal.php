@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.tecnico.ulisboa.pt";
-	$user = "ist425330";
-	$pass = "acdo1863";
+	$user = "istxxxxxx";
+	$pass = "xxxxxxxx";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -60,8 +60,10 @@
 	{
 		$owner_name = $row["name"];
 	}
-	?>
 
+	$connection = null;
+	?>
+	
 	<h2>Animal Successfully Registered</h2>
 
 	<br> </br>
@@ -73,10 +75,7 @@
 		<p><input type="hidden" name="owner_name" value="<?=$owner_name?>"/></p>
 		<p><input type="submit" value="BACK"/></p>
 	</form>
-
-	<?php
-	$connection = null;
-	?>
+	
 	<br> </br>
 	<form action="introduce_data.php" method="post">
 		<h3>Go back to Homepage</h3>

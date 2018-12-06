@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.tecnico.ulisboa.pt";
-	$user = "ist425330";
-	$pass = "acdo1863";
+	$user = "istxxxxxx";
+	$pass = "xxxxxxxx";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -46,7 +46,8 @@
 			echo("<p>Error: {$info[2]}</p>");
 			exit();
 		}
-		$stmt2->execute(array(":animal_name" => $animal_name, ":owner_name" => $owner_name));
+		$stmt2->execute(array(":animal_name" => $animal_name, 
+							  ":owner_name" => $owner_name));
 
 		$nrows2 = $stmt2->rowCount();
 
@@ -56,10 +57,10 @@
 			<form action="new_animal.php" method="post">
 				<h2>Animal Not Found</h2>
 				<h3>If you want to register the animal in the veterinary hospital, please enter the following data:</h3>
-				<p><input type=hidden name="VAT" value="<?=$VAT_client?>"/></p>
-				<p><input type=hidden name="animal_name" value="<?=$animal_name?>"/></p>
+				<p><input type="hidden" name="VAT" value="<?=$VAT_client?>"/></p>
+				<p><input type="hidden" name="animal_name" value="<?=$animal_name?>"/></p>
 				<p>Species Name:
-					<select name='species_name'>
+					<select name="species_name">
 						<?php
 						$stmt3 = "SELECT name AS species_name FROM species ORDER BY name";
 						$result3 = $connection->query($stmt3);

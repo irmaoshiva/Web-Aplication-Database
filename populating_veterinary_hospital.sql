@@ -169,8 +169,13 @@ insert into procedures values ('Max'    , 123456006, '2017-06-15', 27, 'Urine');
 insert into procedures values ('Cookie' , 123456011, '2017-07-01', 41, 'Blood analysis and radiography');
 insert into procedures values ('Rolls'  , 123456022, '2017-08-01', 42, 'Blood analysis and radiography');
 insert into procedures values ('Jackson', 123456033, '2017-09-01', 43, 'Blood analysis and radiography');
-insert into procedures values ('Cooper' , 123456011, '2017-10-01', 44, 'Blood analysis and radiography');
+insert into procedures values ('Cooper' , 123456011, '2017-10-09', 50, 'Blood analysis');
 insert into procedures values ('Cooper' , 123456011, '2017-10-09', 51, 'Blood analysis');
+insert into procedures values ('Cooper' , 123456011, '2017-10-09', 52, 'Blood analysis');
+insert into procedures values ('Cooper' , 123456011, '2017-10-09', 53, 'Blood analysis');
+insert into procedures values ('Cooper' , 123456011, '2017-10-09', 54, 'Blood analysis');
+insert into procedures values ('Cooper' , 123456011, '2017-10-09', 55, 'Blood analysis');
+
 
 insert into performed values ('Striker', 123456001, '2018-01-01', 11, 123456007);
 insert into performed values ('Jackson', 123456022, '2017-02-01', 12, 123456007);
@@ -185,12 +190,17 @@ insert into performed values ('Max'    , 123456006, '2017-06-15', 27, 123456022)
 insert into performed values ('Cookie' , 123456011, '2017-07-01', 41, 123456009);
 insert into performed values ('Rolls'  , 123456022, '2017-08-01', 42, 123456009);
 insert into performed values ('Jackson', 123456033, '2017-09-01', 43, 123456009);
-insert into performed values ('Cooper' , 123456011, '2017-10-01', 44, 123456022);
+insert into performed values ('Cooper' , 123456011, '2017-10-09', 50, 123456022);
+insert into performed values ('Cooper' , 123456011, '2017-10-09', 51, 123456022);
+insert into performed values ('Cooper' , 123456011, '2017-10-09', 52, 123456022);
+insert into performed values ('Cooper' , 123456011, '2017-10-09', 53, 123456022);
+insert into performed values ('Cooper' , 123456011, '2017-10-09', 54, 123456022);
+insert into performed values ('Cooper' , 123456011, '2017-10-09', 55, 123456022);
+
 
 insert into radiography values ('Cookie' , 123456011, '2017-07-01', 41, 'INSERT PATH');
 insert into radiography values ('Rolls'  , 123456022, '2017-08-01', 42, 'INSERT PATH');
 insert into radiography values ('Jackson', 123456033, '2017-09-01', 43, 'INSERT PATH');
-insert into radiography values ('Cooper' , 123456011, '2017-10-01', 44, 'INSERT PATH');
 
 insert into test_procedure values ('Thunder', 123456001, '2017-04-01', 21, 'Urine');
 insert into test_procedure values ('Max'    , 123456006, '2018-06-01', 22, 'Urine');
@@ -202,8 +212,13 @@ insert into test_procedure values ('Max'    , 123456006, '2017-06-15', 27, 'Urin
 insert into test_procedure values ('Cookie' , 123456011, '2017-07-01', 41, 'Blood');
 insert into test_procedure values ('Rolls'  , 123456022, '2017-08-01', 42, 'Blood');
 insert into test_procedure values ('Jackson', 123456033, '2017-09-01', 43, 'Blood');
-insert into test_procedure values ('Cooper' , 123456011, '2017-10-01', 44, 'Blood');
+insert into test_procedure values ('Cooper' , 123456011, '2017-10-09', 50, 'Blood');
 insert into test_procedure values ('Cooper' , 123456011, '2017-10-09', 51, 'Blood');
+insert into test_procedure values ('Cooper' , 123456011, '2017-10-09', 52, 'Blood');
+insert into test_procedure values ('Cooper' , 123456011, '2017-10-09', 53, 'Blood');
+insert into test_procedure values ('Cooper' , 123456011, '2017-10-09', 54, 'Blood');
+insert into test_procedure values ('Cooper' , 123456011, '2017-10-09', 55, 'Blood');
+
 
 insert into produced_indicator values ('Thunder', 123456001, '2017-04-01', 21, 'Nitrites'      , 30);
 insert into produced_indicator values ('Max'    , 123456006, '2018-06-01', 22, 'Nitrites'      , 50);
@@ -215,5 +230,9 @@ insert into produced_indicator values ('Max'    , 123456006, '2017-06-15', 27, '
 insert into produced_indicator values ('Cookie' , 123456011, '2017-07-01', 41, 'Monocytes'     , 100000);
 insert into produced_indicator values ('Rolls'  , 123456022, '2017-08-01', 42, 'Neurotrophils' , 200000);
 insert into produced_indicator values ('Jackson', 123456033, '2017-09-01', 43, 'Lymphocytes'   , 2500000);
-insert into produced_indicator values ('Cooper' , 123456011, '2017-10-01', 44, 'Lymphocytes'   , 50000);
+insert into produced_indicator values ('Cooper' , 123456011, '2017-10-09', 50, 'Lymphocytes'   , 50000);
 insert into produced_indicator values ('Cooper' , 123456011, '2017-10-09', 51, 'creatine level', 5);
+insert into produced_indicator values ('Cooper' , 123456011, '2017-10-09', 52, 'Heartbeats', 12);
+insert into produced_indicator values ('Cooper' , 123456011, '2017-10-09', 53, 'Oxygen concentration', 3);
+insert into produced_indicator values ('Cooper' , 123456011, '2017-10-09', 54, 'Monocytes', 90000);
+insert into produced_indicator values ('Cooper' , 123456011, '2017-10-09', 55, 'Neurotrophils', 190000);
