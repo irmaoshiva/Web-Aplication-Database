@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.ist.utl.pt";
-	$user = "ist426527";
-	$pass = "hith1616";
+	$user = "ist425306";
+	$pass = "zfjy5090";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -54,7 +54,7 @@
 			echo("<td><a href=\"consult_details.php?VAT_client=$VAT_client&animal_name=$animal_name&VAT_owner=$VAT_owner&date_timestamp=");
 			echo($row['date_timestamp']);
 			echo("\">More information</a></td>\n");
-			echo("<td><a href=\"procedures.php?VAT_owner=$VAT_owner&animal_name=$animal_name&date_timestamp=");
+			echo("<td><a href=\"procedures.php?VAT_client=$VAT_client&VAT_owner=$VAT_owner&animal_name=$animal_name&date_timestamp=");
 			echo($row['VAT_o']);
 			echo("&animal_name=$animal_name&date_timestamp=");
 			echo($row['date_timestamp']);
