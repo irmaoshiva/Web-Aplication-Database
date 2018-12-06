@@ -1,6 +1,7 @@
 <html>
 <body>
 	<?php
+		$VAT_client = $_REQUEST['VAT_client'];
 		$VAT_owner = $_REQUEST['VAT_owner'];
 		$name = $_REQUEST['animal_name'];
 		$date_timestamp = $_REQUEST['date_timestamp'];
@@ -49,13 +50,10 @@
 			$stm = array($stm4, $stm4, $stm4, $stm4, $stm4, $stm3, $stm2, $stm1);
 			$sql = array($sql8, $sql7, $sql6, $sql5, $sql4, $sql3, $sql2, $sql1);
 			$counter = count($sql);
-
 			$connection->beginTransaction();
-
 			while ($counter != 0)
 				if (! $connection->prepare($stm[-- $counter])->execute($sql[$counter]))
 					break;
-
 			if ($counter == 0){
 				$connection->commit();
 				echo ("<p><h1> Insertion performed successfully! </h1> </p>");
@@ -71,17 +69,27 @@
 			echo("<p>All measurements must be a positive value.</p>");
 	?>
 
-	<form action='procedures.php' method='post'>
+	<form action="procedures.php" method="post">
 		<h3>Insert new Blood test</h3>
-		<p><input type=hidden name='VAT_owner' value = '<?=$VAT_owner?>' /></p>
-		<p><input type=hidden name='animal_name' value = '<?=$name?>' /></p>
-		<p><input type=hidden name='date_timestamp' value = '<?=$date_timestamp?>' /></p>
-		<p>  <input type='submit' value='New' required/></p>
+		<p><input type="hidden" name="VAT_owner" value = "<?=$VAT_owner?>" /></p>
+		<p><input type="hidden" name="animal_name" value = "<?=$name?>" /></p>
+		<p><input type="hidden" name="date_timestamp" value = "<?=$date_timestamp?>" /></p>
+		<p>  <input type="submit" value="NEW" required/></p>
+	</form>
+
+	<br> </br>
+
+	<form action="consults.php" method="post">
+		<h3>See your previous consults</h3>
+		<p><input type="hidden" name="VAT_client" value="<?=$VAT_client?>"/></p>
+		<p><input type="hidden" name="VAT_owner" value="<?=$VAT_owner?>"/></p>
+		<p><input type="hidden" name="animal_name" value="<?=$name?>"/></p>
+		<p><input type="submit" value="BACK"/></p>
 	</form>
 	<br> </br>
-	<form action='introduce_data.php' method='post'>
+	<form action="introduce_data.php" method="post">
 		<h3>Go back to Homepage</h3>
-		<p><input type='submit' value='HOME'/></p>
+		<p><input type="submit" value="HOME"/></p>
 	</form>
 
 </body>

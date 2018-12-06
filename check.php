@@ -17,9 +17,9 @@
 		exit();
 	}
 
-	$VAT_client = $_REQUEST['VAT_client'];
-	$animal_name = $_REQUEST['animal_name'];
-	$owner_name = $_REQUEST['owner_name'];
+	$VAT_client = $_REQUEST["VAT_client"];
+	$animal_name = $_REQUEST["animal_name"];
+	$owner_name = $_REQUEST["owner_name"];
 
 	$stmt1 = $connection->prepare("SELECT VAT 
 								   FROM client 
@@ -27,10 +27,10 @@
 	if ($stmt1 == FALSE)
 	{
 		$info = $connection->errorInfo();				
-		echo('<p>Error: {$info[2]}</p>');
+		echo("<p>Error: {$info[2]}</p>");
 		exit();
 	}
-	$stmt1->execute(array(':VAT_client' => $VAT_client));
+	$stmt1->execute(array(":VAT_client" => $VAT_client));
 
 	$nrows1 = $stmt1->rowCount();
 
@@ -43,21 +43,21 @@
 		if ($stmt2 == FALSE)
 		{
 			$info = $connection->errorInfo();				
-			echo('<p>Error: {$info[2]}</p>');
+			echo("<p>Error: {$info[2]}</p>");
 			exit();
 		}
-		$stmt2->execute(array(':animal_name' => $animal_name, ':owner_name' => $owner_name));
+		$stmt2->execute(array(":animal_name" => $animal_name, ":owner_name" => $owner_name));
 
 		$nrows2 = $stmt2->rowCount();
 
 		if ($nrows2 == 0)
 		{	
 			?>
-			<form action='new_animal.php' method='post'>
+			<form action="new_animal.php" method="post">
 				<h2>Animal Not Found</h2>
 				<h3>If you want to register the animal in the veterinary hospital, please enter the following data:</h3>
-				<p><input type=hidden name='VAT' value='<?=$VAT_client?>'/></p>
-				<p><input type=hidden name='animal_name' value='<?=$animal_name?>'/></p>
+				<p><input type=hidden name="VAT" value="<?=$VAT_client?>"/></p>
+				<p><input type=hidden name="animal_name" value="<?=$animal_name?>"/></p>
 				<p>Species Name:
 					<select name='species_name'>
 						<?php
@@ -66,22 +66,22 @@
 						if ($result3 == FALSE)
 						{
 							$info = $connection->errorInfo();
-							echo('<p>Error: {$info[2]}</p>');
+							echo("<p>Error: {$info[2]}</p>");
 							exit();
 						}
 						foreach($result3 as $row)
 						{
-							$species_name = $row['species_name'];
+							$species_name = $row["species_name"];
 							echo("<option value=\"$species_name\">$species_name</option>");
 						}
 						?>
 					</select>
 				</p>
-				<p>Colour: <input type='text' name='colour' required/></p>
-				<p>Gender: <input type='text' name='gender' required/></p>
-				<p>Birth Year: <input type='date' name='birth_year' required/></p>
+				<p>Colour: <input type="text" name="colour" required/></p>
+				<p>Gender: <input type="text" name="gender" required/></p>
+				<p>Birth Year: <input type="date" name="birth_year" required/></p>
 				<p><small><u>NOTE:</u> Name and VAT owner were already used in the data previously entered. Age is automatically calculated in the trigger.</small></p>		
-				<p><input type='submit' value='SUBMIT'/></p>
+				<p><input type="submit" value="SUBMIT"/></p>
 			</form>
 			<?php
 		}
@@ -119,9 +119,9 @@
 	$connection = null;
 	?>
 	<br> </br>
-	<form action='introduce_data.php' method='post'>
+	<form action="introduce_data.php" method="post">
 		<h3>Go back to Homepage</h3>
-		<p><input type='submit' value='HOME'/></p>
+		<p><input type="submit" value="HOME"/></p>
 	</form>
 </body>
 </html>

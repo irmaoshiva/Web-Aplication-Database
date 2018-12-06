@@ -17,10 +17,10 @@
 		exit();
 	}
 
-	$VAT_client = $_REQUEST['VAT_client'];
-	$animal_name = $_REQUEST['animal_name'];
-	$VAT_owner = $_REQUEST['VAT_owner'];
-	$date_timestamp = $_REQUEST['date_timestamp'];
+	$VAT_client = $_REQUEST["VAT_client"];
+	$animal_name = $_REQUEST["animal_name"];
+	$VAT_owner = $_REQUEST["VAT_owner"];
+	$date_timestamp = $_REQUEST["date_timestamp"];
 
 	$stmt1 = $connection->prepare("SELECT a.name, a.VAT AS VAT_o, a.species_name, a.gender, a.colour, a.birth_year, a.age, c.s, c.o, c.a, c.p, c.weight, cd.code, p.name_med, p.dosage, p.lab, p.regime
 								   FROM animal a NATURAL JOIN consult c NATURAL LEFT OUTER JOIN consult_diagnosis cd NATURAL LEFT OUTER JOIN prescription p
@@ -30,12 +30,12 @@
 	if ($stmt1 == FALSE)
 	{
 		$info = $connection->errorInfo();				
-		echo('<p>Error: {$info[2]}</p>');
+		echo("<p>Error: {$info[2]}</p>");
 		exit();
 	}
-	$stmt1->execute(array(':animal_name' => $animal_name, 
-						  ':VAT_owner' => $VAT_owner,
-						  ':date_timestamp' => $date_timestamp));
+	$stmt1->execute(array(":animal_name" => $animal_name, 
+						  ":VAT_owner" => $VAT_owner,
+						  ":date_timestamp" => $date_timestamp));
 
 	$nrows1 = $stmt1->rowCount();
 
@@ -77,21 +77,21 @@
 
 	<br> </br>
 
-	<form action='consults.php' method='post'>
+	<form action="consults.php" method="post">
 		<h3>See your previous consults</h3>
-		<p><input type=hidden name='VAT_client' value='<?=$VAT_client?>'/></p>
-		<p><input type=hidden name='animal_name' value='<?=$animal_name?>'/></p>
-		<p><input type=hidden name='VAT_owner' value='<?=$VAT_owner?>'/></p>
-		<p><input type='submit' value='BACK'/></p>
+		<p><input type="hidden" name="VAT_client" value="<?=$VAT_client?>"/></p>
+		<p><input type="hidden" name="animal_name" value="<?=$animal_name?>"/></p>
+		<p><input type="hidden" name="VAT_owner" value="<?=$VAT_owner?>"/></p>
+		<p><input type="submit" value="BACK"/></p>
 	</form>
 
 	<?php
 	$connection = null;
 	?>
 	<br> </br>
-	<form action='introduce_data.php' method='post'>
+	<form action="introduce_data.php" method="post">
 		<h3>Go back to Homepage</h3>
-		<p><input type='submit' value='HOME'/></p>
+		<p><input type="submit" value="HOME"/></p>
 	</form>
 </body>
 </html>
