@@ -51,11 +51,11 @@
 			?>	
 			</p>
 
-			<p>Creatine level: <input type="text" name="creatine" required/></p>
-			<p>Neurotrophils: <input type="text" name="neuro" required/></p>
-			<p>Lymphocytes: <input type="text" name="lym" required/></p>
-			<p>Monocytes: <input type="text" name="mono" required/></p>
-			<p>Ferritine: <input type="text" name="ferr" required/></p>
+			<p>Creatine level: <input type="number" min="0" name="creatine" required/></p>
+			<p>Neurotrophils: <input type="number" min="0" name="neuro" required/></p>
+			<p>Lymphocytes: <input type="number" min="0" name="lym" required/></p>
+			<p>Monocytes: <input type="number" min="0" name="mono" required/></p>
+			<p>Ferritine: <input type="number" min="0" name="ferr" required/></p>
 			<p>Description: <input type="text" name="desc" required/></p>
 			<p>  <input type="submit" value="SUBMIT" required/></p>
 		</form>
