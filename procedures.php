@@ -1,7 +1,7 @@
 <?php
 	$host = "db.ist.utl.pt";
-	$user = "istxxxxxx";
-	$pass = "xxxxxxxx";
+	$user = "ist426527";
+	$pass = "hith1616";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -35,15 +35,20 @@
 			<p><input type="hidden" name="date_timestamp" value = "<?=$date_timestamp?>" /></p>
 
 			<p>Assistants VAT:
-				<select name="VAT_assistant">
-					<?php
-					foreach($rows as $row)
-					{
-						$vat = $row["VAT_assistant"];
-						echo("<option value=\"$vat\">$vat</option>");
-					}
-					?>
-				</select>
+			<?php
+			if ($rows == FALSE)
+			{
+				$info = $connection->errorInfo();
+				echo("<p>Error: {$info[2]}</p>");
+				exit();
+			}
+			foreach($rows as $row)
+			{
+				$vat = $row["VAT_assistant"];
+				echo("<input type='checkbox' name='VAT_assistant[]' value='$vat'/>$vat<br/>");
+			}
+			$connection = null;
+			?>	
 			</p>
 
 			<p>Creatine level: <input type="text" name="creatine" required/></p>
