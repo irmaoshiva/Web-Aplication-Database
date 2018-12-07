@@ -26,6 +26,7 @@
 	$P = $_REQUEST["p"];
 	$VAT_client = $_REQUEST["VAT_client"];
 	$VAT_vet = $_REQUEST["VAT_vet"];
+	$VAT_assis = $_REQUEST["VAT_assis"];
 	$weight = $_REQUEST["weight"];
 	$diagnosis_code = $_REQUEST["diagnosis_code"];
 
@@ -71,6 +72,28 @@
 		{
 			$info = $connection->errorInfo();
 			echo("<h3>Consult Diagnosis is already in the Database</h3>");	
+			echo("<p></p>");				
+			echo("<p>Error: {$info[2]}</p>");
+			exit();
+		}
+	}
+
+	$stmt3 = $connection->prepare("INSERT INTO participation VALUES (:animal_name, :VAT_owner, :date_timestamp, :VAT_assistant)");
+	if ($stmt3 == FALSE)
+	{
+		$info = $connection->errorInfo();				
+		echo("<p>Error: {$info[2]}</p>");
+		exit();
+	}
+	foreach ($VAT_assis as $VAT_assistant ) {
+		$test = $stmt3->execute(array(":animal_name" => $animal_name, 
+									  ":VAT_owner" => $VAT_owner,
+									  ":date_timestamp" => $date_timestamp,
+									  ":VAT_assistant" => $VAT_assistant ));
+		if ($test == FALSE)
+		{
+			$info = $connection->errorInfo();
+			echo("<h3>Assistant is already in the Database</h3>");	
 			echo("<p></p>");				
 			echo("<p>Error: {$info[2]}</p>");
 			exit();
