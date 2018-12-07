@@ -2,8 +2,8 @@
 <body>
 	<?php
 	$host = "db.ist.utl.pt";
-	$user = "istxxxxxx";
-	$pass = "xxxxxxxx";
+	$user = "ist425306";
+	$pass = "zfjy5090";
 	$dsn = "mysql:host=$host;dbname=$user";
 	try
 	{
@@ -112,8 +112,25 @@
 				$name = $row["name"];
 				echo("<input type='checkbox' name='diagnosis_code[]' value='$code'/>$name<br/>");
 			}
-			$connection = null;
 			?>
+		</p>
+		<p>VAT Assistant: <br>
+				<?php
+				$stmt4 = "SELECT VAT FROM assistant ORDER BY VAT";
+				$result4 = $connection->query($stmt4);
+				if ($result4 == FALSE)
+				{
+					$info = $connection->errorInfo();
+					echo("<p>Error: {$info[2]}</p>");
+					exit();
+				}
+				foreach($result4 as $row)
+				{
+					$VAT_assistant = $row["VAT"];
+					echo("<input type='checkbox' name='VAT_assis[]' value=$VAT_assistant/>$VAT_assistant<br/>");
+				}
+				$connection = null;
+				?>
 		</p>
 
 		<p><small><u>NOTE:</u> Animal name, VAT owner and VAT client were used the data previously entered. Date is set to the current date.</small></p>		
