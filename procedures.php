@@ -45,7 +45,7 @@
 			foreach($rows as $row)
 			{
 				$vat = $row["VAT_assistant"];
-				echo("<input type='checkbox' name='VAT_assistant[]' value='$vat'/>$vat<br/>");
+				echo("<input type='checkbox' name='VAT_assis[]' value='$vat'/>$vat<br/>");
 			}
 			$connection = null;
 			?>	
