@@ -162,7 +162,7 @@ create table performed
 	 date_timestamp timestamp,
 	 num integer,
 	 VAT_assistant integer,
-	 primary key(name, VAT_owner, date_timestamp, num),
+	 primary key(name, VAT_owner, date_timestamp, num, VAT_assistant),
 	 foreign key(name, VAT_owner, date_timestamp, num) references procedures(name, VAT_owner, date_timestamp, num) 
 	 	on delete cascade,
 	 foreign key(VAT_assistant) references assistant(VAT));
