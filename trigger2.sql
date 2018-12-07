@@ -24,8 +24,6 @@ end $$
 
 delimiter ;
 
-insert into veterinary values (123456007, 'Nutrition', 'Caroline is a 34 year old specialist in Nutrition.');
-
 /********** SEGUNDO TRIGGER **********/
 
 delimiter $$
@@ -46,10 +44,6 @@ begin
 end $$
 
 delimiter ;
-
-update veterinary 
-set VAT = 123456007, specialization = 'Nutrition', bio = 'Caroline is a 34 year old specialist in Nutrition.')
-where VAT = 123456005;
 
 /********** TERCEIRO TRIGGER **********/
 
@@ -72,8 +66,6 @@ end $$
 
 delimiter ;
 
-insert into assistant values (123456004);
-
 /********** QUARTO TRIGGER **********/
 
 delimiter $$
@@ -94,6 +86,16 @@ begin
 end $$
 
 delimiter ;
+
+/********** CODIGO TESTE **********/
+
+insert into veterinary values (123456007, 'Nutrition', 'Caroline is a 34 year old specialist in Nutrition.');
+
+update veterinary 
+set VAT = 123456007, specialization = 'Nutrition', bio = 'Caroline is a 34 year old specialist in Nutrition.'
+where VAT = 123456005;
+
+insert into assistant values (123456004);
 
 update assistant 
 set VAT = 123456005
