@@ -1,10 +1,3 @@
-source veterinary_hospital.sql;
-
-source populating_veterinary_hospital.sql;
-
-
-/********** APAGAR PARA CIMA **********/
-
 drop trigger if exists update_age;
 
 delimiter $$
@@ -21,26 +14,14 @@ end $$
 
 delimiter ; 
 
-/********** APAGAR PARA BAIXO **********/
+/********** CODIGO TESTE **********/
 
 select * from animal;
 
 select name, VAT_owner, date_timestamp from consult;
 
-/*insert into consult values ('Cooper', 123456011, '2030-11-02 08:00:00' , 'A', 'A', 'A', 'A', 123456011, 123456006, 1.62);
-*/
-insert into consult values ('Cooper', 123456011, '2015-10-02 08:00:00' , 'A', 'A', 'A', 'A', 123456011, 123456006, 1.62);
+insert into consult values ('Rex', 123456001, '2018-12-07' , 'A', 'A', 'A', 'A', 123456001, 123456006, 16.2);
 
 select * from animal;
 
 select name, VAT_owner, date_timestamp from consult;
-
-/*
-
-select birth_year
-from animal
-where animal.name = 'Cooper'
-and animal.VAT = 123456011;
-
-select TIMESTAMPDIFF(YEAR, '2006-04-05 00:00:00', CURDATE());
-*/

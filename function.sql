@@ -18,4 +18,6 @@ end $$
 
 delimiter ;
 
+/********** CODIGO TESTE **********/
+
 select name, number_consults_year(animal.name, animal.VAT, 2017) from animal;
