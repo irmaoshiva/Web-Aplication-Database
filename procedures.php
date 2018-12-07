@@ -27,7 +27,7 @@
 	
 <html>
 <body>
-	<h3>Insert the blood test results:</h3>
+	<h3>Insert the blood test results:</h3> <br>
 	
 	<form action="new_BloodTest.php" method="post">
 			<p><input type="hidden" name="VAT_owner" value = "<?=$VAT_owner?>" /></p>
